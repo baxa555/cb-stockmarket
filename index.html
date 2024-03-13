@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/app.css">
+    <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro@4aaab7b/css/all.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div id="app" v-if="nui"> 
+        <div class="spinner" v-if="spinner">
+            <i class="fad fa-spinner-third fa-spin fa-lg" style="--fa-primary-color: #ff0000; --fa-secondary-color: #000000; --fa-secondary-opacity: 0.8;"></i>
+        </div>
+        <div id="wrap">
+            <div id="stock-big-title">STOCK EXCHANGE</div>
+            <div id="trade-closing">
+                STOCKS BUY PERIOD: 
+                <span id="trade-time" v-for="(item, index) in buyDaysList">
+                    {{ index }}
+                </span>
+                <i class="fad fa-reply-all"></i>
+            </div>
+            <br/>
+            <div id="strain-scrollable">
+                <table id="businessTable" style="width:100%" v-for="(item, index) in stockDatas"> <!--  -->
+                    <tr>
+                        <td class="strain-row" style="width:18%">
+                            <div id="stock-items">{{ item.amount }}<br/>
+                                <span>ITEMS</span>
+                            </div>
+                            <div id="stock-items-your" class="items-${value.setjob}">{{ myDatas[item.name] }}<br/>
+                                <span>YOUR ITEMS</span>
+                            </div>
+                        </td>
+                        <td class="strain-row" style="width:22%"><div id="stock-name">{{ item.name }}</div></td>
+                        <td class="strain-row" style="width:18%;">
+                            <div id="stock-cost">COST:</div> 
+                            <div id="stock-price">${{ item.worth }}</div>
+                            <template v-if="item.baseWorth < item.worth">
+                                <div id="price-up"><i class="fas fa-arrow-up"></i> + ${{ item.worth - item.baseWorth }}</div>
+                            </template>
+                            <template v-else>
+                                <div id="price-down"><i class="fas fa-arrow-down"></i> - ${{ item.baseWorth - item.worth }}</div>
+                            </template>
+                        </td>
+                        <td class="strain-row" style="width:4%"><div id="enter-number">ENTER<br/>NUMBER</div></td>
+                        <td class="strain-row" style="width:8%"><input type="number" id="stock-number" placeholder="0" required v-model="item.buyAmount"></td>
+                        <td class="strain-row" style="width:23%">
+                            <button id="btn-buy" @click="buy(item)" :disabled="!buyDay" :class="!buyDay ? 'disable-button' : ''">BUY</button>
+                            <button id="btn-sell" @click="sell(item)" :disabled="!sellDay" :class="!sellDay ? 'disable-button' : ''">SELL</button>
+                        </td>
+                    </tr> 
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./vue.js"></script>
+    <script src="../assets/js/app.js"></script>
+</body>
+</html>
+

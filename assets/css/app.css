@@ -1,0 +1,406 @@
+@font-face {
+    font-family: "Bebas Nue";
+    src: url("../css/fonts/BebasNeuePro-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Bebas Nue";
+    src: url("../css/fonts/BebasNeuePro-Thin.ttf") format("truetype");
+	font-weight: 100;
+}
+
+@font-face {
+    font-family: "Bebas Nue";
+    src: url("../css/fonts/BebasNeuePro-Light.ttf") format("truetype");
+	font-weight: 200;
+}
+
+@font-face {
+    font-family: "Bebas Nue";
+    src: url("../css/fonts/BebasNeuePro-Middle.ttf") format("truetype");
+	font-weight: 300;
+}
+
+@font-face {
+    font-family: "Bebas Nue";
+    src: url("../css/fonts/BebasNeuePro-Italic.ttf") format("truetype");
+	font-style: italic;
+}
+
+@font-face {
+    font-family: "Bebas Nue";
+    src: url("../css/fonts/BebasNeuePro-Bold.ttf") format("truetype");
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "SignPainter";
+    src: url("../css/fonts/SignPainter.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Myriad Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Myriad Pro'), url('https://fonts.cdnfonts.com/s/492/MYRIADPRO-REGULAR.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Myriad Pro Cond';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Myriad Pro'), url('https://fonts.cdnfonts.com/s/492/MYRIADPRO-COND.woff') format('woff');
+}
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-family:Bebas Nue;
+	background:transparent;
+	height: 100%;
+}
+
+
+
+#wrap {
+	background: url('../img/stock-bg.png') center center no-repeat;
+	background-size:cover;
+    position: absolute;
+	font-family: 'Bebas Nue', 'Myriad Pro Cond';
+	overflow: auto;
+	width: 55vw;
+	height:32vw;
+	color: rgba(255, 255, 255, 1);
+	top: 45%;
+	left:50%;
+    transform: translate(-50%, -50%);
+	overflow:hidden;
+	display:block;
+	z-index:2;
+	filter:drop-shadow(0 0 7vw rgba(0,255,70,0.3));
+}
+
+#stock-big-title {
+	position:absolute;
+	top:-0.5vw;
+	left:1vw;
+	font-size:4vw;
+	font-weight:600;
+	color:rgba(255,255,255,1);
+	z-index:1;
+}
+
+#trade-closing {
+	width:55vw;
+	float:left;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	font-size:1vw;
+	margin-top:4.6vw;
+	margin-bottom:0.5vw;
+	position: relative;
+	left: 10px;
+	font-weight:300;
+	color:rgba(255,255,255,0.8);
+	letter-spacing:0.1vw;
+}
+
+
+#trade-time {
+	font-size:1.4vw;
+	line-height:1.4vw;
+	color:rgba(255,220,50,1);
+	text-shadow: 0 0 1vw rgba(255,210,50,1);
+	margin-right: 0.5vw;
+	letter-spacing:0.01vw
+}
+
+#strain-scrollable {
+	width:99.4%;
+	padding-left:0.5vw;
+	height:21.7vw;
+	overflow-y:scroll;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table td.strain-row {
+	background:rgba(30,30,30,0.2);
+	/* border-bottom:1px solid #454545; */
+	padding:0.5vw 1vw;
+	text-align:left;
+	border-bottom:0.1vw solid rgba(255,255,255,0.1);
+}
+
+#stock-items {
+	width:3.5vw;
+	height:2.5vw;
+	font-size:1.2vw;
+	font-weight:bold;
+	line-height:0.7vw;
+	background:rgba(255,220,50,1);
+	color:rgba(20,20,20,1);
+	padding:0.5vw;
+	text-align:center;
+	float:left;
+}
+
+#stock-items span {
+	font-size:0.6vw;
+	font-weight:normal;
+}
+
+#stock-items-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+}
+
+.disabled {
+	cursor: no-drop;
+}
+
+#stock-items-your {
+	width:3.5vw;
+	height:2.5vw;
+	font-size:1.2vw;
+	font-weight:bold;
+	line-height:0.7vw;
+	background:rgba(230,70,50,1);
+	color:rgba(255,255,255,1);
+	padding:0.5vw;
+	text-align:center;
+	float:left;
+	margin-left:0.4vw;
+}
+
+#stock-items-your span {
+	font-size:0.6vw;
+	font-weight:normal;
+}
+
+#stock-name {
+	font-size:1.1vw;
+	text-transform:uppercase;
+}
+
+#stock-cost{
+	font-size:0.8vw;
+	font-weight:300;
+	line-height:1.5vw;
+	color:rgba(255,255,255,0.7);
+	float:left;
+}
+
+#stock-price {
+	font-size:1.1vw;
+	line-height:1.5vw;
+	font-weight:400;
+	color:rgba(255,255,255,1);
+	float:left;
+	margin:0 0.4vw 0 0.4vw;
+}
+
+#price-up {
+	height:1.5vw;
+	background:rgba(0,0,0,0.4);
+	color:rgba(155,255,50,1);
+	float:left;
+	font-size:0.8vw;
+	line-height:1.5vw;
+	padding:0 0.5vw 0 0;
+	border-radius:0.2vw;
+}
+
+#price-up i {
+	width:1.4vw;
+	height:1.5vw;
+	font-size:0.6vw;
+	line-height:1.6vw;
+	text-align:center;
+	color:rgba(0,0,0,1);
+	padding:0;
+	background:rgba(155,255,50,1);
+	border-radius:0.2vw;
+}
+
+#price-down {
+	height:1.5vw;
+	background:rgba(0,0,0,0.4);
+	color:rgba(255,80,80,1);
+	float:left;
+	font-size:0.8vw;
+	line-height:1.5vw;
+	padding:0 0.5vw 0 0;
+	border-radius:0.2vw;
+}
+
+#price-down i {
+	width:1.4vw;
+	height:1.5vw;
+	font-size:0.6vw;
+	line-height:1.6vw;
+	text-align:center;
+	color:rgba(0,0,0,1);
+	padding:0;
+	background:rgba(255,70,60,1);
+	border-radius:0.2vw;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+#enter-number {
+	text-align:right;
+	font-size:0.7vw;
+	line-height:0.7vw;
+	font-weight:300;
+	color:rgba(255,255,255,0.7);
+}
+
+#stock-number {
+	background:rgba(230,230,230,1);
+	width:4vw;
+	height:2vw;
+	padding:0 0.4vw;
+	text-align:center;
+	color:rgba(0,0,0,0.8);
+	font-size:0.9vw;
+	border:none;
+	outline:none;
+	border-radius:5px;
+}
+
+#btn-buy {
+	background:rgba(155,225,0,1);
+	border:none;
+	width:5vw;
+	height:2vw;
+	padding:0 0.5vw;
+	color:rgba(255,255,255,1);
+	font-size:1vw;
+	letter-spacing:0.01vw;
+	cursor:pointer;
+	transition:0.3s;
+	border-radius:0.2vw;
+}
+
+#btn-buy:hover {
+	background:rgba(155,225,0,1);	
+	box-shadow: 0 0 1vw rgba(125,225,0,0.5);
+}
+
+#btn-sell {
+	background:rgba(215,50,50,1);
+	border:none;
+	width:5vw;
+	height:2vw;
+	padding:0 0.5vw;
+	color:rgba(255,255,255,1);
+	font-size:1vw;
+	letter-spacing:0.01vw;
+	cursor:pointer;
+	transition:0.3s;
+	border-radius:0.2vw;
+}
+
+#btn-sell:hover {
+	background:rgba(255,60,60,1);	
+	box-shadow: 0 0 1vw rgba(225,0,0,0.5);
+}
+
+#stock-description {
+	width: 55vw;
+	height:6vw;
+	font-size:0.9vw;
+	line-height:1.2vw;
+	font-weight:300;
+	top: 80%;
+	left:50%;
+    transform: translate(-50%, -50%);
+	position:absolute;
+	color:rgba(255,255,255,1);
+	z-index:3;
+}
+
+#stock-description span{
+	font-size:1.5vw;
+	line-height:2.2vw;
+	font-weight:bold;
+	color:rgba(255,255,255,1);
+}
+
+#stock-description i.fa-arrow-up {
+	width:1.5vw;
+	height:1.5vw;
+	font-size:0.7vw;
+	line-height:1.5vw;
+	text-align:center;
+	color:#000;
+	background:rgba(155,255,50,1);
+	border-radius:0.2vw;
+}
+
+#stock-description i.fa-arrow-down {
+	width:1.5vw;
+	height:1.5vw;
+	font-size:0.7vw;
+	line-height:1.5vw;
+	text-align:center;
+	color:#000;
+	background:rgba(255,70,60,1);
+	border-radius:0.2vw;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track {
+	background: rgba(255,255,255,0);
+	border: none;
+	border-radius:0.4vw;
+}
+
+::-webkit-scrollbar,
+::-webkit-scrollbar {
+	width: 0.2vw;
+	background-color: transparent;
+	border-radius:0.4vw;
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb {
+	background: rgba(255,200,40,1);
+	border: 0.1vw solid rgba(255,200,40,1);
+	border-radius:0.5vw;
+}
+
+.spinner {
+	position: absolute;
+	width: 55vw;
+	height: 30vw;
+	transform: translate(-50%,-50%);
+	top: 45%;
+	left:50%;
+	padding-top: 12%;
+	text-align: center;
+	font-size: 64px;
+	z-index: 999;
+	backdrop-filter: blur(5px);
+}
+.disable-button {
+	cursor: not-allowed!important;
+	opacity: 0.50!important;
+}
